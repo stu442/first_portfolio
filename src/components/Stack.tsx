@@ -15,7 +15,7 @@ interface StackData {
 export default function Stack() {
     const deployData = {
         "언어": ["Javascript", "Typescript"],
-        "웹 프레임워크": ["React", "Nextjs"],
+        "프레임워크": ["React", "Nextjs"],
         "상태관리": ["Recoil", "Jotai"],
         "UI": ["Tailwind", "Shadcn"],
         "디자인": ["Figma"],
@@ -24,7 +24,6 @@ export default function Stack() {
 
     const usedData = {
         "언어": ["Python"],
-        "모바일 프레임워크": ["Flutter"],
         "백엔드": ["Firebase"]
     };
 
@@ -41,7 +40,7 @@ function StackList({ stackData, description }: StackListProps) {
     return (
         <section>
             <h3 className="text-xl text-green text-center my-8">{description}</h3>
-            <div className="grid grid-cols-3 gap-4">
+            <div className={`grid ${Object.keys(stackData).length > 3 ? "grid-cols-3" : "grid-cols-2"} gap-4 items-start`}>
                 {Object.entries(stackData).map(([category, stacks]) => (
                     <StackCard key={category} category={category} stacks={stacks} />
                 ))}

@@ -54,7 +54,7 @@ function ProjectCard({index, title, description, homepage, github} : ProjectData
                 <h3 className="text-3xl my-2">{title}</h3>
                 <h4 className="text-lg font-medium text-white/70">{description}</h4>
             </div>
-            <div className={`flex ${homepage ? "justify-between" : "justify-center"} my-8`}>
+            <div className={`flex ${homepage ? "sm:justify-between lg:justify-center lg:gap-20" : "sm:justify-center"} justify-center my-8`}>
                 {homepage && <a href={homepage} target="_blank"><button className="bg-green px-12 py-4 rounded-xl">홈페이지</button></a>}
                 <a href={github} target="_blank">
                     <button className="flex gap-2 justify-center bg-gray-600 px-12 py-4 rounded-xl">
