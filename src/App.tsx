@@ -1,9 +1,18 @@
+import Header from "./components/Header"
+import Project from "./components/Project"
+import Stack from "./components/Stack"
+
+
 function App() {
 
   return (
-    <>
-      <p className='text-red-500 underline'>안녕</p>
-    </>
+    <div className="flex-col justify-center items-center mx-[10%] my-[2%]">
+      <Header />
+        <main>
+          <Stack />
+          <Project />
+        </main>
+    </div>
   )
 }
 
