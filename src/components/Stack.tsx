@@ -57,7 +57,7 @@ function StackCard({ category, stacks }: StackCardProps) {
             <div className="flex flex-wrap justify-center">
                 {stacks.map(stack => (
                     <div className="flex flex-col items-center gap-4 mx-4 my-4" key={stack}>
-                        <img src={`src/icons/${stack}.svg`} alt={stack} className="w-20 h-20"/>
+                        <img src={`img/${stack}.svg`} alt={stack} className="w-20 h-20"/>
                         <span>{stack}</span>
                     </div>
                 ))}

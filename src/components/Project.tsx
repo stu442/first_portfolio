@@ -32,7 +32,7 @@ export default function Project() {
 
     return (
         <section className="flex flex-col items-center font-bold my-12">
-            <h2 className="text-4xl my-2">프로젝트</h2>
+            <h2 className="text-4xl my-10">프로젝트</h2>
             <div className="">
                 {projects.map((data, index) => (
                     <ProjectCard key={index} index={index} title={data.title} description={data.description} homepage={data?.homepage} github={data.github} />
@@ -46,9 +46,9 @@ function ProjectCard({index, title, description, homepage, github} : ProjectData
     return (
         <div className="text-center my-12 w-3/4 mx-auto">
             <img 
-                src={`/src/img/project_${index}.png`} 
+                src={`img/project_${index}.png`} 
                 alt="프로젝트 사진"
-                className="rounded-xl my-4"
+                className="rounded-xl my-4 object-cover"
             />
             <div>
                 <h3 className="text-3xl my-2">{title}</h3>
@@ -58,7 +58,7 @@ function ProjectCard({index, title, description, homepage, github} : ProjectData
                 {homepage && <a href={homepage} target="_blank"><button className="bg-green px-12 py-4 rounded-xl">홈페이지</button></a>}
                 <a href={github} target="_blank">
                     <button className="flex gap-2 justify-center bg-gray-600 px-12 py-4 rounded-xl">
-                        <img className="w-6" src="/src/icons/github.svg" />
+                        <img className="w-6" src="img/github.svg" />
                         <span>Github</span>
                     </button>
                 </a>

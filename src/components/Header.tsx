@@ -15,7 +15,7 @@ export default function Header() {
 function Profile() {
     return (
         <img
-        src="src/img/profile.PNG"
+        src="img/profile.PNG"
         className="rounded-full"
         width={200}
         height={200}
