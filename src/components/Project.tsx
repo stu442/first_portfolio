@@ -1,3 +1,5 @@
+import { motion } from "framer-motion"
+
 interface ProjectData {
     index: number
     title: string
@@ -45,10 +47,12 @@ export default function Project() {
 function ProjectCard({index, title, description, homepage, github} : ProjectData) {
     return (
         <div className="text-center my-12 w-3/4 mx-auto">
-            <img 
+            <motion.img 
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.96 }}
                 src={`img/project_${index}.png`} 
                 alt="프로젝트 사진"
-                className="rounded-xl my-4 object-cover"
+                className="rounded-xl my-4 object-cover cursor-pointer"
             />
             <div>
                 <h3 className="text-3xl my-2">{title}</h3>

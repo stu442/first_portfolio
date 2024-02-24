@@ -4,8 +4,8 @@ export default function Header() {
     const { scrollYProgress } = useScroll();
 
     return (
-        <header className="flex flex-col items-center text-center">
-            <motion.header className="fixed origin-left top-0 inset-x-0 h-2 bg-green" style={{ scaleX: scrollYProgress }} />
+        <header className="flex flex-col items-center text-center my-80">
+            <motion.header className="fixed origin-left top-0 inset-x-0 h-2 z-50 bg-green" style={{ scaleX: scrollYProgress }} />
             <Profile />
             <Descripton />
         </header>

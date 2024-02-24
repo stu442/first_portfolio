@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 interface StackCardProps {
     category: string;
     stacks: string[];
@@ -28,24 +30,30 @@ export default function Stack() {
     };
 
     return (
-        <section className="flex flex-col items-center font-bold">
-            <h2 className="text-4xl my-14">기술 스택</h2>
-            <StackList stackData={deployData} description="이 기술로 배포까지 경험해봤어요!" />
+        <section className="flex flex-col-reverse items-center font-bold mb-80">
             <StackList stackData={usedData} description="사용해 본 적 있어요!" />
+            <StackList stackData={deployData} description="이 기술로 배포까지 경험해봤어요!" />
+            <h2 className="text-4xl my-14">기술 스택</h2>
         </section>
     );
 }
 
 function StackList({ stackData, description }: StackListProps) {
+
     return (
-        <section>
+        <motion.section
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true, amount: 0.8 }}
+        >
             <h3 className="text-xl text-green text-center my-8">{description}</h3>
             <div className={`grid ${Object.keys(stackData).length > 3 ? "grid-cols-3" : "grid-cols-2"} gap-4 items-start`}>
                 {Object.entries(stackData).map(([category, stacks]) => (
                     <StackCard key={category} category={category} stacks={stacks} />
                 ))}
             </div>
-        </section>
+        </motion.section>
     );
 }
 
