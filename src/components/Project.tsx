@@ -47,24 +47,45 @@ export default function Project() {
 function ProjectCard({index, title, description, homepage, github} : ProjectData) {
     return (
         <div className="text-center my-12 w-3/4 mx-auto">
-            <motion.img 
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.96 }}
+            <motion.img
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 src={`img/project_${index}.png`} 
                 alt="프로젝트 사진"
-                className="rounded-xl my-4 object-cover cursor-pointer"
+                className="rounded-xl my-6 object-cover cursor-pointer"
             />
-            <div>
-                <h3 className="text-3xl my-2">{title}</h3>
+            <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7 }}
+                viewport={{ once: true, amount: 0.6 }}
+            >
+                <h3 className="text-3xl my-1">{title}</h3>
                 <h4 className="text-lg font-medium text-white/70">{description}</h4>
-            </div>
-            <div className={`flex ${homepage ? "sm:justify-between lg:justify-center lg:gap-20" : "sm:justify-center"} justify-center my-8`}>
-                {homepage && <a href={homepage} target="_blank"><button className="bg-green px-12 py-4 rounded-xl">홈페이지</button></a>}
+            </motion.div>
+            <div className={`flex ${homepage ? "sm:justify-between lg:justify-center lg:gap-20" : "sm:justify-center"} justify-center my-4`}>
+                {homepage && (
+                    <a href={homepage} target="_blank">
+                        <motion.button
+                         className="bg-green px-12 py-4 rounded-xl"
+                         initial={{ opacity: 0, x: -50 }}
+                         whileInView={{ opacity: 1, x: 0 }}
+                         transition={{ duration: 0.5 }}
+                         viewport={{ once: true, amount: 0.6 }}
+                         >홈페이지</motion.button>
+                    </a>
+                )}
                 <a href={github} target="_blank">
-                    <button className="flex gap-2 justify-center bg-gray-600 px-12 py-4 rounded-xl">
+                    <motion.button 
+                    className="flex gap-2 justify-center bg-gray-600 px-12 py-4 rounded-xl"
+                    initial={homepage ? { opacity: 0, x: 50 } : { opacity: 0, y: 30 }}
+                    whileInView={homepage ? { opacity: 1, x: 0 } : { opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    viewport={{ once: true, amount: 0.6 }}
+                    >
                         <img className="w-6" src="img/github.svg" />
                         <span>Github</span>
-                    </button>
+                    </motion.button>
                 </a>
             </div>
         </div>
