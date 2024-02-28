@@ -42,8 +42,8 @@ function StackList({ stackData, description }: StackListProps) {
 
     return (
         <motion.section
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 50, zIndex : -1 }}
+            whileInView={{ opacity: 1, y: 0, zIndex : -1 }}
             transition={{ duration: 0.7 }}
             viewport={{ once: true, amount: 0.6 }}
         >

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion"
+import Modal from "./Modal"
 
 interface ProjectData {
     index: number
@@ -47,13 +48,20 @@ export default function Project() {
 function ProjectCard({index, title, description, homepage, github} : ProjectData) {
     return (
         <div className="text-center my-12 w-3/4 mx-auto">
-            <motion.img
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                src={`img/project_${index}.png`} 
-                alt="프로젝트 사진"
-                className="rounded-xl my-6 object-cover cursor-pointer"
-            />
+            <Modal>
+                <Modal.Toggle>
+                    <motion.img
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        src={`img/project_${index}.png`} 
+                        alt="프로젝트 사진"
+                        className="rounded-xl lg:h-[600px] md:h-[400px] sm:h-[300px] my-6 object-cover cursor-pointer "
+                    />
+                </Modal.Toggle>
+                <Modal.Contents>
+                    {/* <ProjectDetail /> */}
+                </Modal.Contents>
+            </Modal>
             <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -63,6 +71,7 @@ function ProjectCard({index, title, description, homepage, github} : ProjectData
                 <h3 className="text-3xl my-1">{title}</h3>
                 <h4 className="text-lg font-medium text-white/70">{description}</h4>
             </motion.div>
+            
             <div className={`flex ${homepage ? "sm:justify-between lg:justify-center lg:gap-20" : "sm:justify-center"} justify-center my-4`}>
                 {homepage && (
                     <a href={homepage} target="_blank">
